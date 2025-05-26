@@ -20,11 +20,14 @@ Se incluyen datos precargados en la base de datos H2.
 
 Se puede hacer login y ejecutar operaciones directamente desde la consola:
 
+```
 login 987654 
 saldo 987654 12345
 depositar 12345 0012345678901234567890
 extraer 987654 12345 1000
 salir
+```
+
 
 
 ⚙️ Diseño de la solución
