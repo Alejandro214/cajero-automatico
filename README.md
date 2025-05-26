@@ -61,5 +61,6 @@ Muestra el saldo actual de la cuenta si está asociada a la tarjeta.
 🔧 Se consulta vía AccountCard para verificar la relación entre tarjeta y cuenta.
 
 En cada metodo se verifica que la tarjeta ingresada exista y este activa antes de realizar cualquier operacion, caso contrario se lanzara un error
+Tambien se ha creado un servicio de auditoria que al final de cada operacion hace un registro de la misma, con los datos correspondientes de cada operacion. En caso de que se falle con la operacion ejecutada
 
 
