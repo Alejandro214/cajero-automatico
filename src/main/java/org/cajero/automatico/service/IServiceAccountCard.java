@@ -6,6 +6,6 @@ public interface IServiceAccountCard {
 
     String deposit(Integer numberCard, String cbu,Double amount);
 
-    Double balance(Integer numberCard, Integer numberAccount);
+    String balance(Integer numberCard, Integer numberAccount);
 
 }

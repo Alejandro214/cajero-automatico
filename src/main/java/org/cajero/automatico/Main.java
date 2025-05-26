@@ -50,8 +50,7 @@ public class Main {
                 case "saldo":
                     numberCard = Integer.parseInt(partes[1]);
                     numberAccount = Integer.parseInt(partes[2]);
-                    double saldo = serviceAccount.balance(numberCard, numberAccount);
-                    System.out.println("Su saldo es $" + saldo);
+                    System.out.println(serviceAccount.balance(numberCard,numberAccount));
                     break;
                 case "salir":
                     System.out.println("Gracias por usar el cajero.");
