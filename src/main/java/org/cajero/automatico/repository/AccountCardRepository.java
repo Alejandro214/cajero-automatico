@@ -9,11 +9,9 @@ import java.util.Optional;
 
 public interface AccountCardRepository  extends CrudRepository<AccountCard,Long> {
 
-
     Optional<AccountCard> findByCard_NumberCardAndAccount_NumberAccount(Integer numberCard, Integer numberAccount);
-
 
     @Query("SELECT ac.account.balance FROM AccountCard ac WHERE ac.account.numberAccount = :numberAccount")
     Double findBalanceByAccount(@Param("numberAccount") Integer numberAccount);
-    
+
 }
