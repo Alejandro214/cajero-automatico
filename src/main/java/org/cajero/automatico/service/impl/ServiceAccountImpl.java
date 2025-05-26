@@ -4,9 +4,11 @@ import org.cajero.automatico.model.Account;
 import org.cajero.automatico.repository.AccountRepository;
 import org.cajero.automatico.service.inter.IServiceAccount;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class ServiceAccountImpl implements IServiceAccount {
 
     @Autowired
