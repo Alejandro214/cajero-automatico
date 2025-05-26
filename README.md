@@ -23,10 +23,14 @@ Se puede hacer login y ejecutar operaciones directamente desde la consola:
 ```
 login 987654 
 saldo 987654 12345
-depositar 987654 0012345678901234567890 1000 (En este caso se deposita en la misma cuenta que la tarjeta este asosiada)
-depositar 987654 0987654321098765432100 1000 (En este caso se deposita en otra cuenta)
+depositar 987654 0012345678901234567890 1000 
 extraer 987654 12345 1000
 salir
+---Deposito en otra cuenta
+depositar 987654 0987654321098765432100 1000
+saldo 456789 54321
+login 456789
+extraer 456789 54321 1000
 ```
 
 ⚙️ Diseño de la solución
