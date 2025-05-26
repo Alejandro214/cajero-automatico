@@ -19,8 +19,8 @@ public class Main {
         Scanner read = new Scanner(System.in);
         System.out.println("CAJERO AUTOMÁTICO");
         System.out.println("====================");
+        System.out.println("Comandos disponibles: login | extraer | depositar | saldo | salir");
         while (true) {
-            System.out.println("Comandos disponibles: login | extraer | depositar | saldo | salir");
             System.out.print("Ingrese un comando: ");
             String linea = read.nextLine().trim().toLowerCase();
             String[] partes = linea.split("\\s+");

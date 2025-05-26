@@ -6,6 +6,7 @@ import org.cajero.automatico.service.inter.ITransactionAuditService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+//Este servicio se encarga se hacer las operaciones del cajero y de registrar cada una
 @Service
 public class ServiceCareAutomaticImpl implements ICareAutomatic {
 
@@ -29,7 +30,6 @@ public class ServiceCareAutomaticImpl implements ICareAutomatic {
         return extraction;
 
     }
-
     @Override
     public String deposit(Integer numberCard, String cbu, Double amount) {
         String deposit = this.iServiceAccountCard.deposit(numberCard,cbu,amount);
