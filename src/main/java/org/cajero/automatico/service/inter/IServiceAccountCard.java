@@ -1,4 +1,4 @@
-package org.cajero.automatico.service;
+package org.cajero.automatico.service.inter;
 
 public interface IServiceAccountCard {
     String login(Integer numberCard);

@@ -1,6 +1,6 @@
 package org.cajero.automatico;
 
-import org.cajero.automatico.service.ServiceAccountCardImpl;
+import org.cajero.automatico.service.impl.ServiceCareAutomaticImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,7 +15,7 @@ public class Main {
         SpringApplication app = new SpringApplication(Main.class);
         app.setWebApplicationType(WebApplicationType.NONE); // para consola
         ConfigurableApplicationContext context = app.run(args);
-        ServiceAccountCardImpl serviceAccount = context.getBean(ServiceAccountCardImpl.class);
+        ServiceCareAutomaticImpl careAutomatic = context.getBean(ServiceCareAutomaticImpl.class);
         Scanner read = new Scanner(System.in);
         System.out.println("CAJERO AUTOMÁTICO");
         System.out.println("====================");
@@ -32,25 +32,25 @@ public class Main {
             switch (comando) {
                 case "login":
                     numberCard = Integer.parseInt(partes[1]);
-                    String login = serviceAccount.login(numberCard);
+                    String login = careAutomatic.login(numberCard);
                     System.out.println(login);
                     break;
                 case "extraer":
                     numberCard = Integer.parseInt(partes[1]);
                     numberAccount = Integer.parseInt(partes[2]);
                     amount = Double.parseDouble(partes[3]);
-                    System.out.println(serviceAccount.extraction(numberCard, numberAccount, amount));
+                    System.out.println(careAutomatic.extraction(numberCard, numberAccount, amount));
                     break;
                 case "depositar":
                     numberCard = Integer.parseInt(partes[1]);
                     cbu = partes[2];
                     amount = Double.parseDouble(partes[3]);
-                    System.out.println(serviceAccount.deposit(numberCard, cbu, amount));
+                    System.out.println(careAutomatic.deposit(numberCard, cbu, amount));
                     break;
                 case "saldo":
                     numberCard = Integer.parseInt(partes[1]);
                     numberAccount = Integer.parseInt(partes[2]);
-                    System.out.println(serviceAccount.balance(numberCard,numberAccount));
+                    System.out.println(careAutomatic.balance(numberCard,numberAccount));
                     break;
                 case "salir":
                     System.out.println("Gracias por usar el cajero.");

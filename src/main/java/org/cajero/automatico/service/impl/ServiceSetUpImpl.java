@@ -1,4 +1,4 @@
-package org.cajero.automatico.service;
+package org.cajero.automatico.service.impl;
 
 import org.cajero.automatico.model.Account;
 import org.cajero.automatico.model.AccountCard;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ServiceSetUp {
+public class ServiceSetUpImpl {
 
     @Bean
     CommandLineRunner initData(

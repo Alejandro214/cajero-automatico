@@ -1,4 +1,4 @@
-package org.cajero.automatico.service;
+package org.cajero.automatico.service.impl;
 
 import jakarta.transaction.Transactional;
 import org.cajero.automatico.model.Account;
@@ -6,6 +6,8 @@ import org.cajero.automatico.model.AccountCard;
 import org.cajero.automatico.repository.AccountCardRepository;
 import org.cajero.automatico.repository.AccountRepository;
 import org.cajero.automatico.repository.CardRepository;
+import org.cajero.automatico.service.inter.IServiceAccountCard;
+import org.cajero.automatico.service.inter.IServiceCard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,14 +19,14 @@ public class ServiceAccountCardImpl implements IServiceAccountCard {
     private AccountCardRepository accountCardRepository;
 
     @Autowired
-    private CardRepository cardRepository;
+    private IServiceCard iServiceCard;
 
     @Autowired
-    private AccountRepository accountRepository;
+    private ServiceAccountImpl serviceAccount;
 
     @Override
     public String login(Integer numberCard) {
-        if(cardRepository.existsByNumberCardAndActiva(numberCard,"S"))
+        if(iServiceCard.existsByNumberCardAndActiva(numberCard,"S"))
             return "Ingreso exitoso";
         return "Ingreso no exitoso";
     }
@@ -58,13 +60,13 @@ public class ServiceAccountCardImpl implements IServiceAccountCard {
         String login = this.login(numberCard);
         if(!login.equals("Ingreso exitoso"))
             return "Error en consulta de saldo!";
-        Optional<Account> accountOptional = this.accountRepository.findByCbu(cbu);
+        Optional<Account> accountOptional = this.serviceAccount.findByCbu(cbu);
         if(accountOptional.isEmpty())
             return "Error Cuenta no encontrada para el CBU proporcionado!";
         Account accountDeposit = accountOptional.get();
         Double updateAccount = accountDeposit.getBalance() + amount;
         accountDeposit.setBalance(updateAccount);
-        this.accountRepository.save(accountDeposit);
+        this.serviceAccount.save(accountDeposit);
         return "Depósito exitoso";
     }
 
